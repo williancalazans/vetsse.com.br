@@ -29,12 +29,24 @@
     <link rel="stylesheet" href="assets/css/glightbox.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
 
+    <!-- ========================= Fade Animation CSS ========================= -->
+    <style>
+        .hero-image img {
+            transition: opacity 1s ease-in-out;
+            opacity: 1;
+        }
+
+        .hero-image img.fade-out {
+            opacity: 0;
+        }
+    </style>
+
     <!-- Meta Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -55,14 +67,6 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NM3KNS2K" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
 
     <!-- Preloader -->
     <div class="preloader">
@@ -142,7 +146,7 @@
                 </div>
                 <div class="col-lg-7 col-md-12 col-12">
                     <div class="hero-image wow fadeInRight" data-wow-delay=".4s">
-                        <img src="assets/images/hero/phone.png" alt="#">
+                        <img src="assets/images/hero/1.png" alt="App Vetsse">
                     </div>
                 </div>
             </div>
@@ -176,34 +180,28 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Feature -->
                     <div class="single-feature wow fadeInUp" data-wow-delay=".2s">
                         <i class="lni lni-map-marker"></i>
                         <h3>Na sua região</h3>
                         <p>Descubra o veterinário ideal localizado perto de você para fornecer os melhores cuidados ao
                             seu pet.</p>
                     </div>
-                    <!-- End Single Feature -->
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Feature -->
                     <div class="single-feature wow fadeInUp" data-wow-delay=".4s">
                         <i class="lni lni-leaf"></i>
                         <h3>Especialidades</h3>
                         <p>Descubra uma ampla variedade de especialidades veterinárias, garantindo que seu pet receba o
                             cuidado especializado que precisa.</p>
                     </div>
-                    <!-- End Single Feature -->
                 </div>
                 <div class="col-lg-4 col-md-6 col-12">
-                    <!-- Start Single Feature -->
                     <div class="single-feature wow fadeInUp" data-wow-delay=".6s">
                         <i class="lni lni-layers"></i>
                         <h3>Informações centralizadas</h3>
                         <p>Todas as informações essenciais ficam consolidadas em um só lugar, facilitando a localização
                             do veterinário ideal.</p>
                     </div>
-                    <!-- End Single Feature -->
                 </div>
             </div>
         </div>
@@ -218,22 +216,22 @@
                     <div class="cta-content">
                         <h2 class="wow fadeInUp" data-wow-delay=".2s">Veterinários</h2>
                         <p class="wow fadeInUp" data-wow-delay=".4s">Com o Vetsse, você pode apresentar o seu trabalho e
-                            divulgar informações relevantes sobre sua
-                            clínica, consultório ou empresa de forma simples e eficiente.</p>
+                            divulgar informações relevantes sobre sua clínica, consultório ou empresa de forma simples e
+                            eficiente.</p>
                         </br>
                         <p class="wow fadeInUp" data-wow-delay=".4s">Você pode criar um perfil profissional completo,
-                            incluindo detalhes sobre suas
-                            especializações, experiência, horários de atendimento e formas de contato.</p>
+                            incluindo detalhes sobre suas especializações, experiência, horários de atendimento e formas
+                            de contato.</p>
                         </br>
                         <p class="wow fadeInUp" data-wow-delay=".4s">O Vetsse é a plataforma ideal para expandir sua
-                            visibilidade no mercado veterinário e atrair
-                            novos clientes em potencial. Com uma interface intuitiva e fácil de usar, você pode
+                            visibilidade no mercado veterinário e atrair novos clientes em potencial. Com uma interface
+                            intuitiva e fácil de usar, você pode
                             atualizar suas informações de forma rápida e acessível, mantendo-se sempre conectado com os
                             tutores de pets em busca de serviços profissionais de qualidade.</p>
                         </br>
                         <p class="wow fadeInUp" data-wow-delay=".4s">Não perca a oportunidade de aumentar sua clientela
-                            e crescer profissionalmente. Faça parte do
-                            Vetsse e destaque-se como referência na área veterinária!</p>
+                            e crescer profissionalmente. Faça parte do Vetsse e destaque-se como referência na área
+                            veterinária!</p>
                         <div class="button wow fadeInUp" data-wow-delay=".6s">
                             <a href="#home" class="btn">Começar Agora</a>
                         </div>
@@ -246,12 +244,10 @@
 
     <!-- Start Footer Area -->
     <footer class="footer">
-        <!-- Start Footer Top -->
         <div class="footer-top">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12">
-                        <!-- Single Widget -->
                         <div class="single-footer f-about">
                             <div class="logo">
                                 <a href="index.html">
@@ -260,31 +256,20 @@
                             </div>
                             <p>A conexão ideal entre veterinários e tutores de pets.</p>
                             <ul class="social">
-                                <!-- <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li> -->
-                                <!-- <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li> -->
                                 <li><a href="https://www.instagram.com/vetsseapp/"><i class="lni lni-instagram"></i></a>
                                 </li>
-                                <!-- <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li> -->
-                                <!-- <li><a href="javascript:void(0)"><i class="lni lni-youtube"></i></a></li> -->
-                                <!-- <li><a href="javascript:void(0)"><i class="lni lni-pinterest"></i></a></li> -->
                             </ul>
                             <p class="copyright-text">Designed and Developed by <a href="https://alzan.com.br/"
-                                    rel="nofollow" target="_blank">Alzan</a>
-                            </p>
+                                    rel="nofollow" target="_blank">Alzan</a></p>
                         </div>
-                        <!-- End Single Widget -->
                     </div>
                 </div>
             </div>
         </div>
-        <!--/ End Footer Top -->
     </footer>
     <!--/ End Footer Area -->
 
-    <!-- ========================= scroll-top ========================= -->
-    <a href="#" class="scroll-top">
-        <i class="lni lni-chevron-up"></i>
-    </a>
+    <a href="#" class="scroll-top"><i class="lni lni-chevron-up"></i></a>
 
     <!-- ========================= JS here ========================= -->
     <script src="assets/js/bootstrap.min.js"></script>
@@ -293,8 +278,8 @@
     <script src="assets/js/glightbox.min.js"></script>
     <script src="assets/js/count-up.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script type="text/javascript">
 
+    <script type="text/javascript">
         //====== counter up 
         var cu = new counterUp({
             start: 0,
@@ -304,6 +289,29 @@
             append: " ",
         });
         cu.start();
+    </script>
+
+    <!-- ========================= Image Rotation Script ========================= -->
+    <script>
+        const imagens = [
+            "assets/images/hero/1.png",
+            "assets/images/hero/2.png",
+            "assets/images/hero/3.png"
+        ];
+
+        let indiceAtual = 0;
+        const imgElemento = document.querySelector(".hero-image img");
+
+        function trocarImagem() {
+            imgElemento.classList.add("fade-out");
+            setTimeout(() => {
+                indiceAtual = (indiceAtual + 1) % imagens.length;
+                imgElemento.src = imagens[indiceAtual];
+                imgElemento.classList.remove("fade-out");
+            }, 1000);
+        }
+
+        setInterval(trocarImagem, 30000);
     </script>
 </body>
 
