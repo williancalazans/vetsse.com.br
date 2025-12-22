@@ -6,6 +6,27 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Vetsse</title>
 
+    <script>
+        (function () {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/br/app/vetsse/id6462907792";
+                return;
+            }
+
+            // Android
+            if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.alzan.vet";
+                return;
+            }
+
+            // Opcional: fallback (desktop ou outros)
+            // window.location.href = "https://seusite.com.br";
+        })();
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
