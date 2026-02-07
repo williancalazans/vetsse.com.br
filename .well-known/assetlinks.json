@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.alzan.vet",
+            "sha256_cert_fingerprints": [
+                "19:D3:41:62:E8:82:21:BC:B2:60:17:C2:11:8F:D3:CC:95:90:C3:A2:99:5A:DA:E9:7E:5A:BB:0E:58:42:C0:0F"
+            ]
+        }
+    }
+]
