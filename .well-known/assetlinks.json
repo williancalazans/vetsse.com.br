@@ -1,13 +1,15 @@
 [
     {
         "relation": [
-            "delegate_permission/common.handle_all_urls"
+            "delegate_permission/common.handle_all_urls",
+            "delegate_permission/common.get_login_creds"
         ],
         "target": {
             "namespace": "android_app",
             "package_name": "com.alzan.vet",
             "sha256_cert_fingerprints": [
-                "19:D3:41:62:E8:82:21:BC:B2:60:17:C2:11:8F:D3:CC:95:90:C3:A2:99:5A:DA:E9:7E:5A:BB:0E:58:42:C0:0F"
+                "19:D3:41:62:E8:82:21:BC:B2:60:17:C2:11:8F:D3:CC:95:90:C3:A2:99:5A:DA:E9:7E:5A:BB:0E:58:42:C0:0F",
+                "88:39:73:72:F0:81:CE:78:F6:43:D7:48:8F:C5:82:64:51:9B:E1:59:3E:AB:E8:C6:04:3E:C2:89:11:77:E5:22"
             ]
         }
     }
