@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vetsse - A conexão ideal entre veterinários e tutores de pets</title>
+  <meta name="description"
+    content="O Vetsse é o aplicativo que facilita a vida dos tutores de pets na hora de encontrar veterinários qualificados. Profissionais de confiança para o seu animal de estimação.">
+  <meta name="keywords"
+    content="veterinários, veterinária, pets, animais, tutores, clínica veterinária, consulta veterinária, cuidados pet">
+  <meta property="og:title" content="Vetsse - A conexão ideal entre veterinários e tutores">
+  <meta property="og:description"
+    content="O Vetsse foi criado para facilitar a vida dos tutores de pets na hora de encontrar profissionais de confiança.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Vetsse - A conexão ideal entre veterinários e tutores">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1F2937;
+      background: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #E5E7EB;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #7165FF;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo img {
+      height: 2.5rem;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #1F2937;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1F2937;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+
+    nav a:not(.btn-vet):hover {
+      color: #7165FF;
+    }
+
+    .btn-primary {
+      background: #7165FF;
+      color: white;
+      padding: 0.875rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.125rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(113, 101, 255, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #6D28D9;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(113, 101, 255, 0.35);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #7165FF;
+      padding: 0.875rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.125rem;
+      transition: all 0.3s;
+      border: 2px solid #7165FF;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(113, 101, 255, 0.1);
+      transform: scale(1.05);
+    }
+
+    .hero {
+      padding: 5rem 0 6rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .highlight-green {
+      color: #7165FF;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #6B7280;
+      max-width: 42rem;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-image {
+      max-width: 76rem;
+      margin: 0 auto;
+      position: relative;
+      padding: 1rem;
+    }
+
+    .hero-image-wrapper {
+      background: linear-gradient(to bottom, rgba(113, 101, 255, 0.1) 0%, rgba(255, 255, 255, 0) 90%);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 1rem;
+      display: block;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-description {
+      font-size: 1.125rem;
+      color: #6B7280;
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+      cursor: pointer;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      border-color: #7165FF;
+    }
+
+    .feature-card.green {
+      background: linear-gradient(135deg, rgba(113, 101, 255, 0.05) 0%, rgba(113, 101, 255, 0.10) 100%);
+    }
+
+    .feature-card.blue {
+      background: linear-gradient(135deg, rgba(113, 101, 255, 0.10) 0%, rgba(113, 101, 255, 0.15) 100%);
+    }
+
+    .feature-card.purple {
+      background: linear-gradient(135deg, rgba(113, 101, 255, 0.15) 0%, rgba(113, 101, 255, 0.20) 100%);
+    }
+
+    .feature-card.pink {
+      background: linear-gradient(135deg, rgba(113, 101, 255, 0.20) 0%, rgba(113, 101, 255, 0.25) 100%);
+    }
+
+    .feature-card.yellow {
+      background: linear-gradient(135deg, rgba(113, 101, 255, 0.25) 0%, rgba(113, 101, 255, 0.28) 100%);
+    }
+
+    .feature-card.orange {
+      background: linear-gradient(135deg, rgba(113, 101, 255, 0.28) 0%, rgba(113, 101, 255, 0.30) 100%);
+    }
+
+    .feature-icon-wrapper {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-icon {
+      width: 32px;
+      height: 32px;
+      color: #7165FF;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .content-block h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .content-block p {
+      font-size: 1.125rem;
+      color: #6B7280;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .content-block ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+    }
+
+    .content-block li {
+      display: flex;
+      align-items: start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: #F9FAFB;
+      border-radius: 0.75rem;
+      border-left: 4px solid #7165FF;
+    }
+
+    .check-icon {
+      color: #7165FF;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .image-placeholder {
+      background: linear-gradient(135deg, #EAE8FF 0%, #C4B5FD 100%);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-placeholder::before {
+      content: '';
+      display: none;
+    }
+
+    .bg-light {
+      background: #F9FAFB;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #E5E7EB;
+      padding: 3rem 0 2rem;
+      margin-top: 5rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-section h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1F2937;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-section a {
+      color: #6B7280;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: #7165FF;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #E5E7EB;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      color: #6B7280;
+      transition: color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-links a svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .social-links a:hover {
+      color: #7165FF;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 5rem 2rem 2rem;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+      }
+
+      nav.active {
+        right: 0;
+      }
+
+      nav a {
+        padding: 1rem 0;
+        border-bottom: 1px solid #E5E7EB;
+        width: 100%;
+      }
+
+      nav a.btn-vet {
+        margin-top: 1rem;
+        text-align: center;
+        border: none;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .store-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .btn-store {
+        justify-content: center;
+      }
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(113, 101, 255, 0.1);
+      color: #7165FF;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #7165FF 0%, #6D28D9 100%);
+      color: white;
+      padding: 5rem 2rem;
+      border-radius: 2rem;
+      text-align: center;
+      max-width: 1200px;
+    }
+
+    .cta-section h2 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+    }
+
+    .cta-section p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .cta-section .btn-store {
+      background: white;
+      color: #7165FF;
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+    }
+
+    .cta-section .btn-store:hover {
+      background: #F3F4F6;
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-vet {
+      background: #7165FF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .btn-vet:hover {
+      background: #6D28D9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(113, 101, 255, 0.3);
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-store {
+      background: #7165FF;
+      color: white;
+      padding: 0.875rem 1.75rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(113, 101, 255, 0.25);
+    }
+
+    .btn-store:hover {
+      background: #6D28D9;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(113, 101, 255, 0.35);
+    }
+
+    .btn-store svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .btn-store .store-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+
+    .btn-store .store-subtitle {
+      font-size: 0.75rem;
+      font-weight: 500;
+      opacity: 0.85;
+    }
+
+    .btn-store .store-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .contact-section {
+      padding: 5rem 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 2px solid rgba(113, 101, 255, 0.1);
+      text-align: center;
+    }
+
+    .contact-card h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1F2937;
+    }
+
+    .contact-card .btn-contact {
+      background: #7165FF;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.125rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(113, 101, 255, 0.25);
+    }
+
+    .contact-card .btn-contact:hover {
+      background: #6D28D9;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(113, 101, 255, 0.35);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: white;
+      border: 2px solid #E5E7EB;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: #7165FF;
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: #1F2937;
+    }
+
+    .faq-question:hover {
+      background: rgba(113, 101, 255, 0.03);
+    }
+
+    .faq-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      color: #7165FF;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      padding: 0 1.5rem;
+      color: #6B7280;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="#home" class="logo">
+          <img src="assets/images/logo/logo.svg" alt="Vetsse" style="height: 2.5rem;">
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="nav">
+          <a href="#home">Home</a>
+          <a href="#tutores">Tutores</a>
+          <a href="#veterinarios">Veterinários</a>
+          <a href="#funcionalidades">Funcionalidades</a>
+          <a href="#contato">Contato</a>
+          <a href="https://app.vetsse.com.br/" class="btn-vet" target="_blank" rel="noopener noreferrer">Sou veterinário</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <h1>
+          <span class="highlight-green">A conexão ideal</span> entre<br>
+          veterinários e tutores de pets
+        </h1>
+        <p>
+          O Vetsse foi criado para facilitar a vida dos tutores de pets na hora de encontrar profissionais de confiança em diferentes áreas da veterinária.
+        </p>
+        <div class="hero-buttons">
+          <div class="store-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.alzan.vet" class="btn-store" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+              </svg>
+              <div class="store-text">
+                <span class="store-subtitle">Disponível no</span>
+                <span class="store-title">Google Play</span>
+              </div>
+            </a>
+            <a href="https://apps.apple.com/br/app/vetsse/id6462907792" class="btn-store" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
+              </svg>
+              <div class="store-text">
+                <span class="store-subtitle">Disponível na</span>
+                <span class="store-title">App Store</span>
+              </div>
+            </a>
+          </div>
+          <a href="#funcionalidades" class="btn-secondary">Conheça as Funcionalidades</a>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-wrapper">
+            <img src="assets/images/hero/app.png" alt="App Vetsse" style="width: 100%; border-radius: 1rem; display: block;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features para Tutores -->
+    <section id="tutores" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Para Tutores</span>
+          <h2 class="section-title">Chega de preocupação na hora de encontrar um veterinário</h2>
+          <p class="section-description">
+            O Vetsse é o aplicativo criado para facilitar a vida dos tutores de pets na hora de encontrar profissionais de confiança em diferentes áreas da veterinária.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card green">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Na sua região</h3>
+            <p>Descubra o veterinário ideal localizado perto de você para fornecer os melhores cuidados ao seu pet.</p>
+          </div>
+
+          <div class="feature-card blue">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+            </div>
+            <h3>Especialidades</h3>
+            <p>Descubra uma ampla variedade de especialidades veterinárias, garantindo que seu pet receba o cuidado especializado que precisa.</p>
+          </div>
+
+          <div class="feature-card purple">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6M9 16h6"/></svg>
+            </div>
+            <h3>Informações centralizadas</h3>
+            <p>Todas as informações essenciais ficam consolidadas em um só lugar, facilitando a localização do veterinário ideal.</p>
+          </div>
+        </div>
+
+        <div class="two-column" style="margin-top: 5rem;">
+          <div class="content-block">
+            <h3>Tudo o que você precisa em um só lugar</h3>
+            <p>
+              Com o Vetsse, os usuários têm acesso a uma lista completa de veterinários qualificados, desde clínica geral até especialidades. É fácil e rápido encontrar informações sobre os profissionais, como suas especializações, experiências e formas de contato.
+            </p>
+            <p>
+              O Vetsse é a solução perfeita para quem busca comodidade e qualidade na hora de cuidar do seu animal de estimação. Não há necessidade de pesquisar diferentes locais ou consultar outras pessoas, pois reunimos tudo o que você precisa em um só lugar.
+            </p>
+          </div>
+          <div class="image-placeholder">
+            <img src="assets/images/hero/2.png" alt="Funcionalidades Vetsse" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1.5rem;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Funcionalidades do App -->
+    <section id="funcionalidades" class="section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Funcionalidades</span>
+          <h2 class="section-title">Gerencie tudo sobre seu pet em um único app</h2>
+          <p class="section-description">
+            Mantenha todas as informações de saúde do seu pet organizadas e acessíveis, facilitando o acompanhamento veterinário e garantindo o melhor cuidado.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card green">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Controle de Vacinação</h3>
+            <p>Acompanhe todas as vacinas e mantenha o calendário em dia. Receba lembretes automáticos para não perder nenhuma dose importante.</p>
+          </div>
+
+          <div class="feature-card blue">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3>Histórico Médico</h3>
+            <p>Registre consultas, exames e tratamentos. Tenha todo o histórico de saúde do seu pet sempre à mão para compartilhar com veterinários.</p>
+          </div>
+
+          <div class="feature-card purple">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Ficha de Anamnese Completa</h3>
+            <p>Registre dados detalhados sobre seu pet, alimentação e ambiente. Informações essenciais para diagnósticos mais precisos.</p>
+          </div>
+
+          <div class="feature-card pink">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>Monitoramento Clínico</h3>
+            <p>Controle doenças, cirurgias, alergias e medicamentos. Mantenha um registro completo das condições de saúde do seu pet.</p>
+          </div>
+
+          <div class="feature-card yellow">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Comportamento e Rotina</h3>
+            <p>Registre temperamento, ansiedades e interações sociais. Acompanhe mudanças comportamentais e compartilhe com especialistas.</p>
+          </div>
+
+          <div class="feature-card orange">
+            <div class="feature-icon-wrapper">
+              <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <h3>Relatórios Veterinários</h3>
+            <p>Anote observações e condutas recomendadas. Tenha acesso rápido a todas as orientações médicas para seguir corretamente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Para Veterinários -->
+    <section id="veterinarios" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Para Veterinários</span>
+          <h2 class="section-title">Expanda sua visibilidade e conquiste novos clientes</h2>
+          <p class="section-description">
+            O Vetsse é a plataforma ideal para expandir sua visibilidade no mercado veterinário e atrair novos clientes em potencial.
+          </p>
+        </div>
+
+        <div class="two-column">
+          <div class="image-placeholder">
+            <img src="assets/images/web.png" alt="Perfil Veterinário" style="width: 100%; height: 100%; object-fit: cover; border-radius: 1rem;">
+          </div>
+          <div class="content-block">
+            <h3>Destaque-se como referência na área veterinária</h3>
+            <p>
+              Com o Vetsse, você pode apresentar o seu trabalho e divulgar informações relevantes sobre sua clínica, consultório ou empresa de forma simples e eficiente.
+            </p>
+            <ul>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Perfil Profissional Completo</strong><br>
+                  Inclua detalhes sobre suas especializações, experiência, horários de atendimento e formas de contato.
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Atualizações Rápidas</strong><br>
+                  Interface intuitiva e fácil de usar para atualizar suas informações de forma rápida e acessível.
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Conexão Direta com Tutores</strong><br>
+                  Mantenha-se sempre conectado com os tutores de pets em busca de serviços profissionais de qualidade.
+                </div>
+              </li>
+            </ul>
+            <p style="margin-top: 2rem;">
+              <strong>Não perca a oportunidade de aumentar sua clientela e crescer profissionalmente. Faça parte do Vetsse!</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato/FAQ Section -->
+    <section id="contato" class="contact-section bg-light">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Perguntas Frequentes</span>
+          <h2 class="section-title">Tire suas dúvidas sobre o Vetsse</h2>
+          <p class="section-description">
+            Encontre respostas para as perguntas frequentes sobre o Vetsse. Se ainda precisar de ajuda, nossa equipe está pronta para te atender.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Tem mais alguma dúvida?</h3>
+            <a href="https://vetsse.com.br/support" target="_blank" class="btn-contact">Entre em contato</a>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Como funciona o Vetsse?</span>
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-answer">
+                O Vetsse é um aplicativo que conecta tutores de pets a veterinários qualificados. Você pode buscar profissionais por localização, especialidade e visualizar perfis completos com avaliações.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>O aplicativo é gratuito?</span>
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-answer">
+                Sim! O Vetsse é totalmente gratuito para tutores de pets. Você pode baixar, criar sua conta e acessar todas as funcionalidades sem nenhum custo.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Como posso cadastrar meu pet?</span>
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-answer">
+                Após criar sua conta, clique em "Adicionar Pet". Preencha as informações como nome, espécie, raça, idade e características importantes para o perfil do seu animal.
+              </div>
+            </div>
+
+            <!-- <div class="faq-item">
+              <div class="faq-question">
+                <span>Os veterinários são verificados?</span>
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-answer">
+                Sim! Todos os veterinários passam por um processo de verificação onde validamos suas credenciais profissionais e registro no conselho de medicina veterinária.
+              </div>
+            </div> -->
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>Como veterinário, como faço para me cadastrar?</span>
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-answer">
+                Acesse <a href="https://app.vetsse.com.br" target="_blank">app.vetsse.com.br</a>, crie sua conta e seu perfil profissional. Certifique-se de fornecer informações precisas e completas para atrair mais tutores de pets.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>O aplicativo está disponível para iOS e Android?</span>
+                <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="faq-answer">
+                Sim! O Vetsse está disponível tanto na App Store (iOS) quanto na Google Play Store (Android). Baixe gratuitamente e comece a usar agora mesmo.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-section">
+          <h2>Pronto para transformar o cuidado com seu pet?</h2>
+          <p>Junte-se a outros tutores e veterinários que já confiam no Vetsse.</p>
+          <div class="store-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.alzan.vet" class="btn-store" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+              </svg>
+              <div class="store-text">
+                <span class="store-subtitle">Disponível no</span>
+                <span class="store-title">Google Play</span>
+              </div>
+            </a>
+            <a href="https://apps.apple.com/br/app/vetsse/id6462907792" class="btn-store" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
+              </svg>
+              <div class="store-text">
+                <span class="store-subtitle">Disponível na</span>
+                <span class="store-title">App Store</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <img src="assets/images/logo/logo.svg" alt="Vetsse" style="height: 2rem; margin-bottom: 0.5rem;">
+          <p style="color: #6B7280; margin-top: 0.5rem;">
+            A conexão ideal entre veterinários e tutores de pets.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#tutores">Para Tutores</a></li>
+            <li><a href="#veterinarios">Para Veterinários</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Suporte</h4>
+          <ul>
+            <li><a href="mailto:contato@vetsse.com.br">Email</a></li>
+            <li><a href="https://vetsse.com.br/support" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p style="color: #6B7280;">© 2026 Vetsse. Todos os direitos reservados. Designed and Developed by Alzan</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/vetsseapp" target="_blank" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Detecta o sistema operacional e redireciona automaticamente para a loja
+    (function() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // Verifica se já redirecionou nesta sessão
+      if (sessionStorage.getItem('redirected')) {
+        return;
+      }
+      
+      // Detecta Android
+      if (/android/i.test(userAgent)) {
+        sessionStorage.setItem('redirected', 'true');
+        window.location.href = 'https://play.google.com/store/apps/details?id=com.alzan.vet';
+        return;
+      }
+      
+      // Detecta iOS
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        sessionStorage.setItem('redirected', 'true');
+        window.location.href = 'https://apps.apple.com/br/app/vetsse/id6462907792';
+        return;
+      }
+    })();
+
+    // Menu Hambúrguer
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const nav = document.getElementById('nav');
+      const navLinks = nav.querySelectorAll('a:not(.btn-vet)');
+
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+      });
+
+      // Fecha o menu ao clicar em um link
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          nav.classList.remove('active');
+        });
+      });
+
+      // Fecha o menu ao clicar fora
+      document.addEventListener('click', function(event) {
+        const isClickInsideNav = nav.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+
+        if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains('active')) {
+          hamburger.classList.remove('active');
+          nav.classList.remove('active');
+        }
+      });
+    });
+
+    // FAQ Accordion
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          
+          // Fecha todos os outros itens
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle do item atual
+          if (isActive) {
+            item.classList.remove('active');
+          } else {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
