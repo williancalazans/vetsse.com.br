@@ -1161,18 +1161,18 @@
       }
       
       // Detecta Android
-      if (/android/i.test(userAgent)) {
-        sessionStorage.setItem('redirected', 'true');
-        window.location.href = 'https://play.google.com/store/apps/details?id=com.alzan.vet';
-        return;
-      }
+      // if (/android/i.test(userAgent)) {
+      //   sessionStorage.setItem('redirected', 'true');
+      //   window.location.href = 'https://play.google.com/store/apps/details?id=com.alzan.vet';
+      //   return;
+      // }
       
-      // Detecta iOS
-      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        sessionStorage.setItem('redirected', 'true');
-        window.location.href = 'https://apps.apple.com/br/app/vetsse/id6462907792';
-        return;
-      }
+      // // Detecta iOS
+      // if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      //   sessionStorage.setItem('redirected', 'true');
+      //   window.location.href = 'https://apps.apple.com/br/app/vetsse/id6462907792';
+      //   return;
+      // }
     })();
 
     // Menu Hambúrguer
