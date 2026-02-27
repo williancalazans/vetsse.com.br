@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Arquivos importantes
+Sitemap: https://vetsse.com.br/sitemap.xml
+
+# Permitir rastreamento de páginas
+Allow: /index.html
+Allow: /policy/
+Allow: /support/
+
+# Bloquear diretórios desnecessários
+Disallow: /assets/
